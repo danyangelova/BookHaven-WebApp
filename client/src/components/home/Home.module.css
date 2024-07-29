@@ -1,30 +1,29 @@
-
-.welcome-message {
+.welcomeMessage {
     display: flex;
     justify-content: space-between;
     padding: 24px 190px;
     align-items: center;
 }
 
-.welcome-message h1 {
+.welcomeMessage h1 {
     color: #781054;
     font-size: 100px;
     margin-right: 87px;
 }
 
-.welcome-img {
+.welcomeImg {
     width: 567px;
     box-shadow: rgba(204, 122, 127, 2.1) 0px 5px 33px 13px, rgba(204, 122, 127, 0.32) 0px 5px 16px 0px;
-    background-color: #d6d6d6;
+    background-color: #c9cacc;
 }
 
 .catalog {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-.book-item {
+.bookItem {
     display: flex;
     background-color: #fff;
     padding: 15px;
@@ -36,30 +35,30 @@
     align-items: center;
 }
 
-.book-item img {
+.bookItem img {
     width: 100px;
     height: 150px;
     object-fit: cover;
     margin-right: 15px;
 }
 
-.book-info {
+.bookInfo {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.book-info h2 {
+.bookInfo h2 {
     color: #a83388;
     margin: 0;
 }
 
-.book-info p {
+.bookInfo p {
     color: #555;
     margin: 0;
 }
 
-.no-books {
+.noBooks {
     color: #781054;
     font-style: italic;
 }

@@ -1,7 +1,7 @@
-.post-container {
+.editContainer {
     background-color: #fff;
     width: 500px;
-    margin: 70px auto;
+    margin:  7px auto;
     border-radius: 15px;
 }
 
@@ -36,7 +36,7 @@ form textarea {
 }
 
 form textarea {
-    height: 50px;
+    height: 114px
 }
 
 form input[type="button"] {

@@ -1,4 +1,4 @@
-.book-container {
+.bookContainer {
     background-color: #fff;
     display: flex;
     margin: 50px 200px;
@@ -6,22 +6,18 @@
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
-.book-container img {
+.bookContainer img {
     width: 300px;
     border-radius: 15px 0 0 15px;
 }
 
-.book-info {
+.bookInfo {
     display: flex;
     flex-direction: column;
     padding: 30px;
 }
 
-.details h1{
-    text-align: center;
-}
-
 .heading {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 10px;
 }
