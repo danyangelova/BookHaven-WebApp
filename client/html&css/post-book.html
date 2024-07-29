@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="post-book.css">
+    <title>Post</title>
+</head>
+<body>
+
+    <header>
+        <a href="#">
+            <div class="logo">BookHaven</div>
+        </a>
+        <nav>
+            <a href="#all-books">All books</a>
+            <a href="#post-book">Post book</a>
+            <a href="#login">Login</a>
+            <a href="#logout">Logout</a>
+            <a href="#register">Register</a>
+        </nav>
+    </header>
+
+    <section class="post-container" id="post">
+        <form>
+                <h2>Post book</h2>
+                <label for="title">Title</label>
+                <input name="title" type="text" placeholder="The Little Prince" spellcheck="false">
+                <label for="author">Author</label>
+                <input name="author" type="text" placeholder="Antoine de Saint-Exupéry" spellcheck="false">
+                <label for="genre">Genre</label>
+                <input name="genre" type="text" placeholder="novella" spellcheck="false">
+                <textarea name="post-area" spellcheck="false"></textarea>
+                <input type="button" value="Post">
+        </form>
+    </section>
+    
+    
+</body>
+</html>

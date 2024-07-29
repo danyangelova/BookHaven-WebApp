@@ -1,0 +1,81 @@
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 110px;
+}
+
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 110px;
+}
+
+form {
+    padding: 40px 57px;
+    background-color: rgb(133 123 100 / 60%);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.book-img {
+    background: url('book-img.png');
+    height: 59px;
+    width: 84px;
+    background-size: cover;
+    margin: auto;
+}
+
+form h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    color: #781054;
+    text-align: center;
+}
+
+form label {
+    font-size: 16px;
+    color: #781054;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="email"],
+form input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #a83388;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #b855a5;
+}
+
+form .field span {
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+form .field a {
+    color: #800080;
+    text-decoration: none;
+}

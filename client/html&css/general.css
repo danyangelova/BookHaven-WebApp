@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #e2ccb0 url('background-effect.png') repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cc7a7f;
+    padding: 22px 20px;
+    color: #fff;
+}
+
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav a {
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+main {
+    padding: 30px 40px;
+}
+
+h1 {
+    color: #781054;
+}
+
+button {
+    background-color: #a83388;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+button:hover {
+    background-color: #b855a5;
+}
