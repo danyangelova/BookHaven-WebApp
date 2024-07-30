@@ -1,16 +1,16 @@
-import styles from '../AllBooks.module.css'
+import styles from '../AllBooks.module.css';
 
-export default function AllBooksList() {
+export default function AllBooksList({ book }) {
     return (
         <>
             <div className={styles.bookItem}>
-                <img src="book-covers/A Dark and Hollow Star by Ashley Shuttleworth.jpg" alt="Book Cover" />
+                <img src={book.imageUrl} alt={`${book.title} Cover`} />
                 <div className={styles.bookInfo}>
-                    <h2>A Dark and Hollow Star</h2>
-                    <p>Ashley Shuttleworth</p>
+                    <h2>{book.title}</h2>
+                    <p>{book.author}</p>
                     <button>Details</button>
                 </div>
             </div>
         </>
-    )
+    );
 }
