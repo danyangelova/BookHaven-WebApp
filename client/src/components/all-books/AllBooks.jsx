@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react'
 import AllBooksList from './all-books-list/AllBooksList'
 import styles from './AllBooks.module.css'
+import * as booksAPI from '../../api/booksAPI.js';
 
 export default function AllBooks() {
 
     const [books, setBooks] = useState({});
 
     useEffect(() => {
-        fetch('http://localhost:3030/jsonstore/books')
-            .then(response => response.json())
-            .then(data => {
-                setBooks(data);
+        booksAPI.getAllBooks()
+            .then(result => {
+                setBooks(result);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
