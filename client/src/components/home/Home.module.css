@@ -58,7 +58,26 @@
     margin: 0;
 }
 
-.noBooks {
+/* .noBooks {
     color: #781054;
     font-style: italic;
+} */
+
+.btn {
+    background-color: #a83388;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 40px;
+    border: none;
+    text-align: center;
+    font-size: 13px;
+    width: 90px;
+}
+
+.btn:hover {
+    background-color: #b855a5;
 }

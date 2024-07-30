@@ -54,6 +54,7 @@
     border: none;
     text-align: center;
     font-size: 13px;
+    width: 90px;
 }
 
 .btn:hover {

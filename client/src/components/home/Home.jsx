@@ -1,7 +1,18 @@
+import { useEffect, useState } from 'react'
 import LastBooks from '../last-books/LastBooks'
 import styles from './Home.module.css'
+import { getAllBooks } from '../../api/booksAPI'
 
 export default function Home() {
+    const [latestBooks, setLatestGames] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+           const result = await getAllBooks();
+
+           setLatestGames(result.reverse().slice(0, 3));
+        })()
+    }, [])
     return (
         <>
             <section id="home">
@@ -15,15 +26,13 @@ export default function Home() {
 
                 <div className={styles.catalog}>
 
-                    <LastBooks />
-                    <LastBooks />
-                    <LastBooks />
-                    <LastBooks />
+                    {latestBooks.length > 0
+                        ? latestBooks.map(book => <LastBooks key={book._id} {...book} />)
+                        : <p className={styles.noBooks}>No books yet</p>
+                    }
 
                 </div>
-
-                {/* <!-- No books message --> */}
-                <p className={styles.noBooks}>No books yet</p>
+                
             </section>
         </>
     )
