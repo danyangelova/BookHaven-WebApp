@@ -8,7 +8,6 @@ body {
 
 
 a {
-    color: #fff;
     text-decoration: none;
 }
 
@@ -24,11 +23,13 @@ header {
 header .logo {
     font-size: 1.5em;
     font-weight: bold;
+    color: #fff;
 }
 
 nav a {
     margin: 0 10px;
     font-size: 18px;
+    color: #fff;
 }
 
 main {

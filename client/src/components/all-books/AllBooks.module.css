@@ -41,3 +41,21 @@
     color: #555;
     margin: 0;
 }
+
+.btn {
+    background-color: #a83388;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 40px;
+    border: none;
+    text-align: center;
+    font-size: 13px;
+}
+
+.btn:hover {
+    background-color: #b855a5;
+}
