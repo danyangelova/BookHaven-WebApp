@@ -14,7 +14,13 @@ async function requester(method, url, data) {
     }
 
     const resp = await fetch(url, options);
-    const result = resp.json();
+
+    if (!resp.ok) {
+        const message = `An error has occurred: ${resp.status}`;
+        throw new Error(message);
+    }
+
+    const result = await resp.json();
 
     return result;
 }

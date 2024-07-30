@@ -20,8 +20,8 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/allbooks" element={<AllBooks />} />
-          <Route path="/bookdetails" element={<BookDetails />} />
+          <Route path="/books" element={<AllBooks />} />
+          <Route path="/books/:bookId/details" element={<BookDetails />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/post" element={<PostBook />} />

@@ -5,7 +5,7 @@ import * as booksAPI from '../../api/booksAPI.js';
 
 export default function AllBooks() {
 
-    const [books, setBooks] = useState({});
+    const [books, setBooks] = useState([]);
 
     useEffect(() => {
         booksAPI.getAllBooks()
@@ -24,12 +24,12 @@ export default function AllBooks() {
             <h1>All books</h1>
 
             <div className={styles.catalog}>
-                {Object.keys(books).length > 0 ? (
-                    Object.keys(books).map(key => (
-                        <AllBooksList key={key} book={books[key]} />
+                {books.length > 0 ? (
+                    books.map(book => (
+                        <AllBooksList key={book._id} {...book} />
                     ))
                 ) : (
-                    <p>Looding...</p>
+                    <p>Loading...</p>
                 )}
             </div>
 

@@ -10,7 +10,7 @@ export default function Header() {
                 </Link>
                 <nav>
                     <NavLink
-                        to="/allbooks"
+                        to="/books"
                         style={({ isActive }) => isActive ? { color: "#652c5c", fontWeight: "bold" } : {}}
                     >All books
                     </NavLink>

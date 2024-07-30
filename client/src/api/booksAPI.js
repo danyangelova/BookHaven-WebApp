@@ -9,3 +9,5 @@ export const getAllBooks = async () => {
 
     return books;
 }
+
+export const getOne = (bookId) => get(`${baseURL}/${bookId}`)

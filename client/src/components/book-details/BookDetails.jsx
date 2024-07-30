@@ -1,36 +1,37 @@
-import styles from './BookDetails.module.css'
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import styles from './BookDetails.module.css';
+import { getOne } from '../../api/booksAPI';
 
 export default function BookDetails() {
+    const { bookId } = useParams(); //izvlichame bookId ot url/a
+    const [book, setBook] = useState({});
+
+    useEffect(() => {
+        (async () => {
+            if (bookId) { //
+                const result = await getOne(bookId);
+                setBook(result);
+            }
+        })();
+    }, [bookId]); //dobavqme bookId kato zavisimost
+
+    const { title, author, genre, imageUrl, description } = book;
+
     return (
         <>
             <section id="details">
-
                 <h1 className={styles.heading}>Book Details</h1>
-
                 <div className={styles.bookContainer}>
-                    <img src="book-covers/A Dark and Hollow Star by Ashley Shuttleworth.jpg" />
+                    {imageUrl && <img src={imageUrl} alt={`${title} Cover`} />}
                     <div className={styles.bookInfo}>
-                        <h1>Book Title</h1>
-                        <p>Author: </p>
-                        <p>Genre: Fiction</p>
-                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate sed, commodi, eum
-                            libero
-                            quae vero quo suscipit fugiat consequatur iste quidem quos consequuntur atque. Dolorum quasi magni
-                            nulla
-                            repudiandae enim!
-                            Accusamus voluptas rem obcaecati nisi placeat incidunt eius assumenda sed quia quidem consequatur
-                            animi
-                            perspiciatis aperiam eligendi quisquam deserunt voluptatum vitae sapiente ipsa praesentium,
-                            excepturi
-                            repellat nesciunt. Quis, sapiente ut.
-                            Soluta, fugiat! Neque maxime id ea similique quas perferendis, provident itaque enim iusto quis
-                            illum!
-                            Modi
-                            labore sapiente nisi magnam perspiciatis hic dicta sunt nemo voluptas, aut officia fuga architecto!.
-                        </p>
+                        <h1>{title}</h1>
+                        <p>{author}</p>
+                        <p>{genre}</p>
+                        <p>{description}</p>
                     </div>
                 </div>
             </section>
         </>
-    )
+    );
 }
