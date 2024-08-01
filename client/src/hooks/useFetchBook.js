@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import booksAPI from "../api/booksAPI";
 
 export function useFetchBook(bookId) {
+
     const [book, setBook] = useState({});
     const [isFetching, setIsFetching] = useState(false);
+
 
     useEffect(() => {
 
@@ -19,4 +21,5 @@ export function useFetchBook(bookId) {
     }, [bookId])
 
     return { book, isFetching };
+    
 }

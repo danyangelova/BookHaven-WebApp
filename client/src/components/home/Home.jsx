@@ -26,7 +26,8 @@ export default function Home() {
 
 
                 <div className={styles.catalog}>
-
+                    
+                    {/* overfetching */}
                     {latestBooks.length > 0
                         ? latestBooks.map(book => <LastBooks key={book._id} {...book} />)
                         : <Spinner />
