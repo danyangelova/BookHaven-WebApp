@@ -2,6 +2,7 @@ import { get, post, put, del } from './requester.js';
 
 const baseURL = 'http://localhost:3030/jsonstore/books';
 
+//getAllBooks
 export const getAllBooks = async () => {
 
     const result = await get(baseURL);
@@ -10,4 +11,10 @@ export const getAllBooks = async () => {
     return books;
 }
 
-export const getOne = (bookId) => get(`${baseURL}/${bookId}`)
+//getOneBook
+export const getOneBook = (bookId) => get(`${baseURL}/${bookId}`)
+
+export default {
+    getAllBooks,
+    getOneBook
+}

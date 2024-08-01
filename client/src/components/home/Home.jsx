@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import LastBooks from '../last-books/LastBooks'
 import styles from './Home.module.css'
 import { getAllBooks } from '../../api/booksAPI'
+import Spinner from '../spinner/Spinner';
 
 export default function Home() {
     const [latestBooks, setLatestGames] = useState([]);
@@ -28,7 +29,7 @@ export default function Home() {
 
                     {latestBooks.length > 0
                         ? latestBooks.map(book => <LastBooks key={book._id} {...book} />)
-                        : <p className={styles.noBooks}>No books yet</p>
+                        : <Spinner />
                     }
 
                 </div>

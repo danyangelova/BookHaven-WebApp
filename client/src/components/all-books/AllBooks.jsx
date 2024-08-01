@@ -1,21 +1,13 @@
-import { useEffect, useState } from 'react'
+
 import AllBooksList from './all-books-list/AllBooksList'
 import styles from './AllBooks.module.css'
-import * as booksAPI from '../../api/booksAPI.js';
+import Spinner from '../spinner/Spinner.jsx';
+import { useFetchBooks } from '../../hooks/useFetchBooks.js';
 
 export default function AllBooks() {
 
-    const [books, setBooks] = useState([]);
-
-    useEffect(() => {
-        booksAPI.getAllBooks()
-            .then(result => {
-                setBooks(result);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    }, []);
+    
+    const books = useFetchBooks();
 
     return (
 
@@ -29,7 +21,7 @@ export default function AllBooks() {
                         <AllBooksList key={book._id} {...book} />
                     ))
                 ) : (
-                    <p>Loading...</p>
+                    <Spinner />
                 )}
             </div>
 
