@@ -2,33 +2,35 @@ import { useLogin } from '../../hooks/useLogin';
 import { useForm } from '../../hooks/useForm'
 
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
 
 import '../../login-register.css'
 
-export default function Login() {
+const initialValues = { email: '', password: '' }
 
-    const handleLogin = useLogin();
+
+
+export default function Login() {
+    const [error, setError] = useState('');
+    const login = useLogin();
     const navigate = useNavigate();
 
-    const { values, handleInputChange, handleSubmit } = useForm(
+    const handleLogin = async ({ email, password }) => {
+        try {
+            await login(email, password)
+            navigate('/')
 
-        { email: '', password: '' },
-        async ({ email, password }) => {
-            try {
-                await handleLogin(email, password)
-                navigate('/')
-            } catch (err) {
-                console.log(err.message);
-            }
+        } catch (err) {
+            setError(err.message)
         }
-    );
+    }
+
+    const { values, handleInputChange, handleSubmit } = useForm(initialValues, handleLogin);
 
     return (
         <>
             <section className="login" id="login" >
-
                 <form className='formLogin' onSubmit={handleSubmit}>
-
                     <div className="formContainer">
                         <div className="bookImg"></div>
                         <h2>Login</h2>
@@ -52,12 +54,16 @@ export default function Login() {
                             spellCheck="false"
                             required
                         />
+                        {error &&
+                            <p className="errorMessage">
+                                <span>{error}</span>
+                            </p>
+                        }
                         <input type="submit" value="Login" />
                         <p className="field">
                             <span>You don't have a profile? <a href="#">click here</a></span>
                         </p>
                     </div>
-
                 </form>
             </section >
         </>

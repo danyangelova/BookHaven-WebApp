@@ -13,16 +13,21 @@ async function requester(method, url, data) {
         options.body = JSON.stringify(data);
     }
 
-    const resp = await fetch(url, options);
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
 
-    if (!resp.ok) {
-        const message = `An error has occurred: ${resp.status}`;
-        throw new Error(message);
+        if (!response.ok) {
+            console.log(result);
+            throw result;
+        }
+        return result;
+
+    } catch (err) {
+        console.error('Request failed:', err);
+        throw err;
     }
 
-    const result = await resp.json();
-
-    return result;
 }
 
 export async function get(url) {

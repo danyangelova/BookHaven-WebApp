@@ -14,7 +14,7 @@
 
 .formLogin,
 .formRegister {
-    padding: 40px 57px;
+    padding: 18px 58px;
     background-color: rgb(133 123 100 / 60%);
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -45,15 +45,15 @@
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    margin-top: 15px;
 }
 
 .formLogin input[type="email"],
 .formRegister input[type="email"],
 .formLogin input[type="password"],
 .formRegister input[type="password"] {
-    width: calc(100% - 20px);
+    width: 250px;
     padding: 10px;
-    margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -68,6 +68,8 @@
     color: #fff;
     font-size: 18px;
     cursor: pointer;
+    display: block;
+    margin-top: 20px;
 }
 
 .formLogin input[type="submit"]:hover,
@@ -87,4 +89,14 @@
 .formRegister .field a {
     color: #800080;
     text-decoration: none;
+}
+
+.errorMessage {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.errorMessage span {
+    color: rgba(214, 38, 29, 0.952);
+    font-size: 13px;
 }

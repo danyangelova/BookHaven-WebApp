@@ -6,15 +6,20 @@ import { login } from "../api/authAPI"
 
 
 export const useLogin = () => {
-
     const { changeAuthState } = useContext(AuthContext);
 
     const handleLogin = async (email, password) => {
-        const result = await login(email, password);
+        try {
+            const result = await login(email, password);
+            changeAuthState(result)
 
-        changeAuthState(result)
-        
-        console.log(result);
+            return result;
+
+        } catch (err) {
+            console.error('Login failed:', err);
+            throw err;
+        }
+
     }
 
     return handleLogin;

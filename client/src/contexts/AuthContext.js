@@ -8,5 +8,4 @@ export const AuthContext = createContext({
     changeAuthState: () => null
   });
 
-  console.log(AuthContext);
-  
+  // console.log(AuthContext);
