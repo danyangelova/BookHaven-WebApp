@@ -1,3 +1,7 @@
+import { AuthContext } from "./contexts/AuthContext"
+
+import { useState } from "react"
+
 import { Routes, Route } from "react-router-dom"
 
 import Header from "./components/header/Header"
@@ -7,18 +11,32 @@ import Login from "./components/login/Login"
 import Register from "./components/register/Register"
 import PostBook from "./components/post-book/PostBook"
 import EditBook from "./components/edit-book/EditBook"
-import Spinner from "./components/spinner/Spinner"
 import BookItemDetails from "./components/book-item-details/BookItemDetails"
 
-function App() {
 
+
+function App() {
+  const [authState, setAuthState] = useState({});
+
+  const changeAuthState = (state) => {
+    //todo validation
+    setAuthState(state);
+  }
+
+
+  const contextData = {
+    userId: authState._id,
+    email: authState.email,
+    accessToken: authState.accessToken,
+    isAuthenticated: !!authState.email,
+    changeAuthState
+  }
 
   return (
-    <>
+    <AuthContext.Provider value={contextData}>
+
       <Header />
-
       <main>
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/books" element={<AllBooks />} />
@@ -29,7 +47,8 @@ function App() {
           <Route path="/edit" element={<EditBook />} />
         </Routes>
       </main>
-    </>
+
+    </AuthContext.Provider>
   )
 }
 
