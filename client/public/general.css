@@ -20,6 +20,10 @@ header {
     color: #fff;
 }
 
+nav {
+    display: flex;
+}
+
 header .logo {
     font-size: 1.5em;
     font-weight: bold;
@@ -30,6 +34,13 @@ nav a {
     margin: 0 10px;
     font-size: 18px;
     color: #fff;
+}
+
+nav p {
+    margin: 0 10px;
+    font-size: 18px;
+    color: #781054;
+    font-weight: bold;
 }
 
 main {
