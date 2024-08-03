@@ -1,10 +1,10 @@
 async function requester(method, url, data) {
+    
     const options = {};
 
     if (method !== 'GET') {
         options.method = method;
     }
-
     if (data) {
         options.headers = {
             'Content-Type': 'application/json'
@@ -12,6 +12,7 @@ async function requester(method, url, data) {
 
         options.body = JSON.stringify(data);
     }
+
 
     try {
         const response = await fetch(url, options);
@@ -21,8 +22,9 @@ async function requester(method, url, data) {
             console.log(result);
             throw result;
         }
+        // console.log(result);
         return result;
-
+        
     } catch (err) {
         console.error('Request failed:', err);
         throw err;

@@ -3,7 +3,6 @@ import booksAPI from "../api/booksAPI";
 
 
 export function useFetchBooks() {
-
     const [books, setBooks] = useState([])
 
     useEffect(() => {
@@ -15,4 +14,16 @@ export function useFetchBooks() {
     }, [])
 
     return books;
+}
+
+
+export function useCreateBook() {
+    
+    const handleBookCreate = (bookData) => {
+        const result = booksAPI.createBook(bookData);
+
+        return result
+    }
+
+    return handleBookCreate;
 }

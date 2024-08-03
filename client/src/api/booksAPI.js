@@ -1,20 +1,36 @@
 import { get, post, put, del } from './requester.js';
 
-const baseURL = 'http://localhost:3030/jsonstore/books';
+//http://localhost:3030/data/books
 
-//getAllBooks
+
 export const getAllBooks = async () => {
-
-    const result = await get(baseURL);
+    const result = await get('http://localhost:3030/data/books');
     const books = Object.values(result);
-
+    
     return books;
 }
 
-//getOneBook
-export const getOneBook = (bookId) => get(`${baseURL}/${bookId}`)
+
+
+export const getOneBook = async (bookId) => {
+    const result = await get(`http://localhost:3030/data/books/${bookId}`);
+    
+    return result;
+}
+
+
+
+export const createBook = async (bookData) => {
+    const result = await post(`http://localhost:3030/data/books`, bookData);
+    // console.log(result);
+    
+    return result;
+}
+
+
 
 export default {
     getAllBooks,
-    getOneBook
+    getOneBook,
+    createBook
 }

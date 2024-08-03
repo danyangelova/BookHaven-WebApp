@@ -1,12 +1,15 @@
+/* body {
+    overflow: hidden;
+} */
+
 .postContainer {
     background-color: #fff;
     width: 500px;
-    margin: 7px auto;
+    margin: 0px auto;
     border-radius: 15px;
 }
 
 form {
-    padding: 60px 57px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
@@ -39,7 +42,7 @@ form textarea {
     height: 50px;
 }
 
-form input[type="button"] {
+form input[type="submit"] {
     width: 100%;
     padding: 10px;
     background-color: #a83388;
@@ -50,7 +53,7 @@ form input[type="button"] {
     cursor: pointer;
 }
 
-form input[type="button"]:hover {
+form input[type="submit"]:hover {
     background-color: #b855a5;
 }
 

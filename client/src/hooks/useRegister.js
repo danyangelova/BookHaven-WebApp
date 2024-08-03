@@ -2,17 +2,19 @@ import { AuthContext } from "../contexts/AuthContext"
 
 import { useContext } from "react"
 
-import { register } from "../api/authAPI";
+import authAPI from "../api/authAPI";
+
 
 
 export const useRegister = () => {
-
     const { changeAuthState } = useContext(AuthContext);
 
     const handleRegister = async (email, password) => {
         try {
-            const result = await register(email, password)
-            changeAuthState(result)
+            const result = await authAPI.register(email, password)
+            const { password: _, ...authState } = result;
+
+            changeAuthState(authState)
 
             return result;
 
@@ -21,6 +23,6 @@ export const useRegister = () => {
             throw err;
         }
     }
-
     return handleRegister;
+
 }
