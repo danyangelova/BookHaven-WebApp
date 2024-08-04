@@ -1,5 +1,5 @@
 async function requester(method, url, data) {
-    
+
     const options = {};
 
     if (method !== 'GET') {
@@ -14,21 +14,15 @@ async function requester(method, url, data) {
     }
 
 
-    try {
-        const response = await fetch(url, options);
-        const result = await response.json();
+    const response = await fetch(url, options);
+    const result = await response.json();
 
-        if (!response.ok) {
-            console.log(result);
-            throw result;
-        }
-        // console.log(result);
-        return result;
-        
-    } catch (err) {
-        console.error('Request failed:', err);
-        throw err;
+    if (!response.ok) {
+        console.log(result);
+        throw result;
     }
+    // console.log(result);
+    return result;
 
 }
 

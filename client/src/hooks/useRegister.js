@@ -10,18 +10,14 @@ export const useRegister = () => {
     const { changeAuthState } = useContext(AuthContext);
 
     const handleRegister = async (email, password) => {
-        try {
-            const result = await authAPI.register(email, password)
-            const { password: _, ...authState } = result;
 
-            changeAuthState(authState)
+        const result = await authAPI.register(email, password)
+        const { password: _, ...authState } = result;
 
-            return result;
+        changeAuthState(authState)
 
-        } catch (err) {
-            console.error('Registration failed:', err);
-            throw err;
-        }
+        return result;
+
     }
     return handleRegister;
 

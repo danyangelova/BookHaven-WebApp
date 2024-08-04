@@ -42,6 +42,7 @@ function App() {
           <Route path="/books" element={<AllBooks />} />
           <Route path="/books/:bookId/details" element={<BookItemDetails />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/post" element={<PostBook />} />
           <Route path="/edit" element={<EditBook />} />

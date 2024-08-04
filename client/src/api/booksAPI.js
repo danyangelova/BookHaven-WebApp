@@ -4,7 +4,7 @@ import { get, post, put, del } from './requester.js';
 
 
 export const getAllBooks = async () => {
-    const result = await get('http://localhost:3030/data/books');
+    const result = await get('http://localhost:3030/jsonstore/books');
     const books = Object.values(result);
     
     return books;
@@ -13,7 +13,7 @@ export const getAllBooks = async () => {
 
 
 export const getOneBook = async (bookId) => {
-    const result = await get(`http://localhost:3030/data/books/${bookId}`);
+    const result = await get(`http://localhost:3030/jsonstore/books/${bookId}`);
     
     return result;
 }
@@ -21,7 +21,7 @@ export const getOneBook = async (bookId) => {
 
 
 export const createBook = async (bookData) => {
-    const result = await post(`http://localhost:3030/data/books`, bookData);
+    const result = await post(`http://localhost:3030/jsonstore/books`, bookData);
     // console.log(result);
     
     return result;

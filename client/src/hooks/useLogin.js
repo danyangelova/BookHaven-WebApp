@@ -10,18 +10,13 @@ export const useLogin = () => {
     const { changeAuthState } = useContext(AuthContext);
 
     const handleLogin = async (email, password) => {
-        try {
-            const result = await authAPI.login(email, password);
-            const { password: _, ...authState } = result;
+        const result = await authAPI.login(email, password);
+        const { password: _, ...authState } = result;
 
-            changeAuthState(authState)
+        changeAuthState(authState)
 
-            return result;
+        return result;
 
-        } catch (err) {
-            console.error('Login failed:', err);
-            throw err;
-        }
     }
 
     return handleLogin;
