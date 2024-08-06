@@ -1,36 +1,21 @@
 import { get, post, put, del } from './requester.js';
 
-//http://localhost:3030/data/books
+const apiURL = 'http://localhost:3030/jsonstore/books';
 
 
 export const getAllBooks = async () => {
-    const result = await get('http://localhost:3030/jsonstore/books');
+    const result = await get(apiURL);
     const books = Object.values(result);
     
     return books;
 }
 
-
-
-export const getOneBook = async (bookId) => {
-    const result = await get(`http://localhost:3030/jsonstore/books/${bookId}`);
+export const getBookById = async (bookId) => {
+    return await get(`${apiURL}/${bookId}`);
     
-    return result;
 }
-
-
 
 export const createBook = async (bookData) => {
-    const result = await post(`http://localhost:3030/jsonstore/books`, bookData);
-    // console.log(result);
-    
-    return result;
-}
+    return await post(`${apiURL}`, bookData);
 
-
-
-export default {
-    getAllBooks,
-    getOneBook,
-    createBook
 }

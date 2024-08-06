@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import LastBooks from '../last-books/LastBooks'
 import styles from './Home.module.css'
-import { getAllBooks } from '../../api/booksAPI'
+
 import Spinner from '../spinner/Spinner';
+import { getAllBooks } from '../../api/booksAPI';
 
 export default function Home() {
     const [latestBooks, setLatestGames] = useState([]);

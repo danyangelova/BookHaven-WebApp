@@ -6,7 +6,7 @@ import { useFetchBooks } from '../../hooks/useFetchBooks.js';
 
 export default function AllBooks() {
 
-    
+
     const books = useFetchBooks();
 
     return (

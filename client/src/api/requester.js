@@ -1,43 +1,56 @@
-async function requester(method, url, data) {
-
-    const options = {};
-
-    if (method !== 'GET') {
-        options.method = method;
-    }
-    if (data) {
-        options.headers = {
-            'Content-Type': 'application/json'
-        };
-
-        options.body = JSON.stringify(data);
-    }
-
-
+const request = async (url, options) => {
     const response = await fetch(url, options);
-    const result = await response.json();
+    // console.log(response);
+    
 
     if (!response.ok) {
-        console.log(result);
-        throw result;
+        const errorText = await response.text();
+        throw new Error(`!!HTTP error! status: ${response.status}, message: ${errorText}`);
     }
-    // console.log(result);
-    return result;
 
-}
 
-export async function get(url) {
-    return requester('GET', url);
-}
+    const contentType = response.headers.get('content-type');
+    if (contentType && contentType.includes('application/json')) {
+        return response.json();
 
-export async function post(url, data) {
-    return requester('POST', url, data);
-}
+    } else {
+        throw new Error('!!Unexpected content type: ' + contentType);
+    }
+};
 
-export async function put(url, data) {
-    return requester('PUT', url, data);
-}
 
-export async function del(url) {
-    return requester('DELETE', url);
-}
+
+export const get = (url) => {
+    return request(url, {
+        method: 'GET'
+    });
+};
+
+
+export const post = (url, data) => {
+    return request(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+};
+
+
+export const put = (url, data) => {
+    return request(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+};
+
+
+export const del = (url) => {
+    return request(url, {
+        method: 'DELETE'
+    });
+};

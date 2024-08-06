@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import booksAPI from "../api/booksAPI";
+import { createBook, getAllBooks, getBookById } from "../api/booksAPI";
 
 
 export function useFetchBooks() {
@@ -7,9 +7,14 @@ export function useFetchBooks() {
 
     useEffect(() => {
         (async () => {
-            const result = await booksAPI.getAllBooks();
+            try {
+                const result = await getAllBooks();
+                setBooks(result)
 
-            setBooks(result)
+            } catch (error) {
+                console.error('!!Detailed error:', error);
+
+            }
         })()
     }, [])
 
@@ -17,12 +22,40 @@ export function useFetchBooks() {
 }
 
 
-export function useCreateBook() {
-    
-    const handleBookCreate = (bookData) => {
-        const result = booksAPI.createBook(bookData);
 
-        return result
+export function useFetchBook(bookId) {
+    const [book, setBook] = useState({});
+    const [isFetching, setIsFetching] = useState(false);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                if (bookId) {
+                    setIsFetching(true);
+
+                    const result = await getBookById(bookId)
+                    setBook(result);
+                    setIsFetching(false);
+                }
+            } catch (error) {
+
+                console.error('!!Detailed error:', error);
+                setIsFetching(false);
+            }
+        })();
+    }, [bookId]);
+
+    return { book, isFetching };
+}
+
+
+
+
+export function useCreateBook() {
+
+    const handleBookCreate = (bookData) => {
+        return result = createBook(bookData)
+
     }
 
     return handleBookCreate;

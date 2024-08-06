@@ -1,8 +1,8 @@
 
 import { useParams } from 'react-router-dom';
 import styles from './BookItemDetails.module.css';
-import { useFetchBook } from '../../hooks/useFetchBook';
 import Spinner from '../spinner/Spinner';
+import { useFetchBook } from '../../hooks/useFetchBooks';
 
 export default function BookItemDetails() {
     const { bookId } = useParams();
