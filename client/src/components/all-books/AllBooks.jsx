@@ -4,10 +4,13 @@ import styles from './AllBooks.module.css'
 import Spinner from '../spinner/Spinner.jsx';
 import { useFetchBooks } from '../../hooks/useFetchBooks.js';
 
+import { filterUniqueBooks } from '../../utils/filterUniqueBooks.js';
+
 export default function AllBooks() {
 
 
     const books = useFetchBooks();
+    const uniqueBooks = filterUniqueBooks(books);
 
     return (
 
@@ -17,7 +20,7 @@ export default function AllBooks() {
 
             <div className={styles.catalog}>
                 {books.length > 0 ? (
-                    books.map(book => (
+                    uniqueBooks.map(book => (
                         <AllBooksList key={book._id} {...book} />
                     ))
                 ) : (
