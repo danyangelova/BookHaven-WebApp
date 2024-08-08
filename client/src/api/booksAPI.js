@@ -1,6 +1,6 @@
 import { get, post, put, del } from './requester.js';
 
-const apiURL = 'http://localhost:3030/jsonstore/books';
+const apiURL = 'http://localhost:3030/data/books';
 
 
 export const getAllBooks = async () => {
