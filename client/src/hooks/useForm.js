@@ -9,7 +9,6 @@ export function useForm(initialValues, submitCallback) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //validacii
         submitCallback(values);
     }
 
@@ -18,5 +17,4 @@ export function useForm(initialValues, submitCallback) {
         handleInputChange,
         handleSubmit
     };
-
 }

@@ -10,29 +10,44 @@ export const useLogin = () => {
     const { changeAuthState } = useContext(AuthContext);
 
     const handleLogin = async (email, password) => {
-        const result = await login(email, password);
-        const { password: _, ...authState } = result;
+        try {
+            localStorage.removeItem('accessToken');
+            const result = await login(email, password);
+            const authData = { ...result };
+            delete authData.password;
 
-        changeAuthState(authState)
+            localStorage.setItem('accessToken', authData.accessToken);
+            changeAuthState(authData);
+            return authData;
 
-        return result;
+        } catch (err) {
+            console.error('Login error:', err);
+            throw err;
+        }
     }
 
     return handleLogin;
 }
 
 
-
 export const useRegister = () => {
     const { changeAuthState } = useContext(AuthContext);
 
     const handleRegister = async (email, password) => {
-        const result = await register(email, password)
-        const { password: _, ...authState } = result;
+        try {
+            localStorage.removeItem('accessToken');
+            const result = await register(email, password);
+            const authData = { ...result };
+            delete authData.password;
 
-        changeAuthState(authState)
+            localStorage.setItem('accessToken', authData.accessToken);
+            changeAuthState(authData);
+            return authData;
 
-        return result;
+        } catch (err) {
+            console.error('Register error:', err);
+            throw err;
+        }
     }
 
     return handleRegister;
