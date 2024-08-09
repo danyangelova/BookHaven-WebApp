@@ -38,6 +38,32 @@ export default function BookItemDetails() {
                     </>
                 )}
 
+                <div className={styles.commentsContainer}>
+                    <h2>Comments</h2>
+                    <div className={styles.comments}>
+                        <div className={styles.comment}>
+                            <p>User: I like this book</p>
+                        </div>
+                        <div className={styles.comment}>
+                            <p>User: Amaziiiing</p>
+                        </div>
+                        <div className={styles.comment}>
+                            <p>User: Amaziiiing</p>
+                        </div>
+                        {/* <p className={styles.noComment}>No comments.</p> */}
+                    </div>
+                </div>
+
+                <div className={styles.addComments}>
+                    <form className={styles.commentsForm}>
+                    <label>Add new comment</label>
+                        <textarea name="comment" placeholder="Type....."></textarea>
+                        <input className="btn submit" type="submit" value="Add Comment" />
+                    </form>
+                </div>
+
+
+
             </section >
         </>
     );
