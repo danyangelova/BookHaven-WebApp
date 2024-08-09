@@ -29,6 +29,10 @@ export default function BookItemDetails() {
                                 <p>{author}</p>
                                 <p>{genre}</p>
                                 <p>{description}</p>
+                                <div className={styles.buttons} >
+                                    <button>Edit</button>
+                                    <button>Delete</button>
+                                </div>
                             </div>
                         </div>
                     </>

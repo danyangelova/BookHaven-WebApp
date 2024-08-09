@@ -12,7 +12,7 @@ export default function Home() {
         (async () => {
            const result = await getAllBooks();
 
-           setLatestGames(result.reverse().slice(0, 3));
+           setLatestGames(result.reverse().slice(0, 4));
         })()
     }, [])
     return (

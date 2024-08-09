@@ -1,13 +1,11 @@
-import { AuthContext } from "../contexts/AuthContext"
-
-import { useContext } from "react"
+import { useAuthContext } from "../contexts/AuthContext"
 
 import { register, login } from "../api/authAPI";
 
 
 
 export const useLogin = () => {
-    const { changeAuthState } = useContext(AuthContext);
+    const { changeAuthState } = useAuthContext();
 
     const handleLogin = async (email, password) => {
         try {

@@ -1,10 +1,10 @@
-import { useContext } from "react"
+
 import { Link } from "react-router-dom"
 import { NavLink } from "react-router-dom"
-import { AuthContext } from "../../contexts/AuthContext"
+import { useAuthContext } from "../../contexts/AuthContext"
 
 export default function Header() {
-    const { isAuthenticated, email } = useContext(AuthContext)
+    const { isAuthenticated, email } = useAuthContext()
     return (
         <>
             <header>

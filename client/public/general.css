@@ -58,7 +58,7 @@ button {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 40px;
+    /* margin-top: 40px; */
 }
 
 button:hover {

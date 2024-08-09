@@ -1,6 +1,4 @@
-import { AuthContext } from "./contexts/AuthContext"
-
-import { useState } from "react"
+import { AuthContextProvider } from "./contexts/AuthContext"
 
 import { Routes, Route } from "react-router-dom"
 
@@ -17,25 +15,12 @@ import { PrivateRoute } from "./components/private-route/PrivateRoute"
 
 
 function App() {
-  const [authState, setAuthState] = useState({});
+  
 
-  const changeAuthState = (state) => {
-    localStorage.setItem('accessToken', state.accessToken);
-
-    setAuthState(state);
-  }
-
-
-  const contextData = {
-    userId: authState._id,
-    email: authState.email,
-    accessToken: authState.accessToken,
-    isAuthenticated: !!authState.email,
-    changeAuthState
-  }
+  
 
   return (
-    <AuthContext.Provider value={contextData}>
+    <AuthContextProvider>
 
       <Header />
       <main>
@@ -58,7 +43,7 @@ function App() {
         </Routes>
       </main>
 
-    </AuthContext.Provider>
+    </AuthContextProvider>
   )
 }
 

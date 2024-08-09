@@ -20,4 +20,13 @@
 .heading {
     text-align: center;
     margin-top: 10px;
+    
+}
+
+.buttons {
+    text-align: right;
+}
+
+.buttons button {
+    margin-right: 10px;
 }
