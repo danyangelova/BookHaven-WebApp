@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-
+import { logout as apiLogout } from '../api/authAPI';
 
 export const AuthContext = createContext({
   userId: '',
@@ -8,7 +8,6 @@ export const AuthContext = createContext({
   isAuthenticated: false,
   changeAuthState: () => null
 });
-
 
 
 
@@ -21,12 +20,26 @@ export function AuthContextProvider(props) {
     setAuthState(state);
   }
 
+
+  const logout = async () => {
+    try {
+      await apiLogout();
+    } catch (err) {
+      console.error('Failed to logout from server:', err);
+    } finally {
+      localStorage.removeItem('accessToken');
+      setAuthState({});
+    }
+  }
+
+
   const contextData = {
     userId: authState._id,
     email: authState.email,
     accessToken: authState.accessToken,
     isAuthenticated: !!authState.email,
-    changeAuthState
+    changeAuthState,
+    logout
   }
 
 
@@ -36,7 +49,6 @@ export function AuthContextProvider(props) {
     </AuthContext.Provider>
   )
 }
-
 
 
 

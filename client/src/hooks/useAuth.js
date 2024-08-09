@@ -1,5 +1,4 @@
 import { useAuthContext } from "../contexts/AuthContext"
-
 import { register, login } from "../api/authAPI";
 
 
@@ -28,8 +27,9 @@ export const useLogin = () => {
 }
 
 
+
 export const useRegister = () => {
-    const { changeAuthState } = useContext(AuthContext);
+    const { changeAuthState } = useAuthContext();
 
     const handleRegister = async (email, password) => {
         try {
@@ -50,3 +50,5 @@ export const useRegister = () => {
 
     return handleRegister;
 }
+
+

@@ -24,6 +24,11 @@ const request = async (url, options = {}) => {
         throw new Error(`!!HTTP error! status: ${response.status}, message: ${errorText}`);
     }
 
+    if (response.status === 204) {
+        return null; 
+    }
+
+
     const contentType = response.headers.get('content-type');
 
     if (contentType && contentType.includes('application/json')) {
@@ -32,6 +37,7 @@ const request = async (url, options = {}) => {
         throw new Error('!!Unexpected content type: ' + contentType);
     }
 };
+
 
 export const get = (url) => {
     return request(url, {
