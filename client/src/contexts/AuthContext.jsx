@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { logout as apiLogout } from '../api/authAPI';
+import { useNavigate } from "react-router-dom";
+
 
 export const AuthContext = createContext({
   userId: '',
@@ -11,9 +13,11 @@ export const AuthContext = createContext({
 
 
 
+
+
 export function AuthContextProvider(props) {
   const [authState, setAuthState] = useState({});
-
+  const navigate = useNavigate();
   const changeAuthState = (state) => {
     localStorage.setItem('accessToken', state.accessToken);
 
@@ -21,16 +25,20 @@ export function AuthContextProvider(props) {
   }
 
 
+
+
   const logout = async () => {
     try {
       await apiLogout();
-    } catch (err) {
-      console.error('Failed to logout from server:', err);
-    } finally {
+      navigate('/');
       localStorage.removeItem('accessToken');
       setAuthState({});
+    } catch (err) {
+      console.error('Failed to logout from server:', err);
     }
   }
+
+
 
 
   const contextData = {
@@ -43,13 +51,13 @@ export function AuthContextProvider(props) {
   }
 
 
+
   return (
     <AuthContext.Provider value={contextData}>
       {props.children}
     </AuthContext.Provider>
   )
 }
-
 
 
 export function useAuthContext() {

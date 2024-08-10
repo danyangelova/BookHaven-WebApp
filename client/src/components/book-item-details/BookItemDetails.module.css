@@ -20,16 +20,35 @@
 .heading {
     text-align: center;
     margin-top: 10px;
-    
+}
+
+.btn {
+    background-color: #a83388;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* margin-top: 40px; */
+}
+
+.btn:hover {
+    background-color: #b855a5;
 }
 
 .buttons {
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
 }
 
-.buttons button {
+.buttons .left {
+    margin-right: auto; 
+}
+
+.buttons .edit {
     margin-right: 10px;
 }
+
 
 /* Comments */
 
@@ -47,7 +66,7 @@
 
 .commentsContainer h2 {
     text-align: center;
-    margin: 10px 0 50px 0;
+    margin: 10px 0 23px 0;
     color: #781054;
 }
 

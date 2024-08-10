@@ -51,7 +51,7 @@ h1 {
     color: #781054;
 }
 
-button {
+.btn {
     background-color: #a83388;
     color: #fff;
     border: none;
@@ -61,7 +61,7 @@ button {
     /* margin-top: 40px; */
 }
 
-button:hover {
+.btn:hover {
     background-color: #b855a5;
 }
 
@@ -75,6 +75,14 @@ button:hover {
     display: inline-block;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
+}
+
+.logout {
+    background: none;
+    border: 0;
+    color: #fff;
+    font-size: 17.2px;
+    cursor: pointer;
 }
 
 @keyframes rotation {

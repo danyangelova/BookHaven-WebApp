@@ -3,8 +3,10 @@ import { Link } from "react-router-dom"
 import { NavLink } from "react-router-dom"
 import { useAuthContext } from "../../contexts/AuthContext"
 
+ 
 export default function Header() {
-    const { isAuthenticated, email } = useAuthContext()
+    const { isAuthenticated, email, logout } = useAuthContext()
+ 
     return (
         <>
             <header>
@@ -29,11 +31,11 @@ export default function Header() {
                                 style={({ isActive }) => isActive ? { color: "#652c5c", fontWeight: "bold" } : {}}
                             >Post book
                             </NavLink>
-                            <NavLink
-                                to="/logout"
-                                style={({ isActive }) => isActive ? { color: "#652c5c", fontWeight: "bold" } : {}}
+                            <button className="logout"
+                                onClick={() => logout()}
+                            // style={({ isActive }) => isActive ? { color: "#652c5c", fontWeight: "bold" } : {}}
                             >Logout
-                            </NavLink>
+                            </button>
                         </>
                         : (
                             <>
