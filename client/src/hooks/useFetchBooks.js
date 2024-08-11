@@ -21,6 +21,8 @@ export function useFetchBooks() {
     return books;
 }
 
+
+
 export function useFetchBook(bookId) {
     const [book, setBook] = useState({});
     const [isFetching, setIsFetching] = useState(false);
@@ -41,8 +43,10 @@ export function useFetchBook(bookId) {
         })();
     }, [bookId]);
 
-    return { book, isFetching };
+    return [ book, isFetching ];
 }
+
+
 
 export function useCreateBook() {
     const handleBookCreate = async (bookData) => {

@@ -18,13 +18,12 @@ export const AuthContext = createContext({
 export function AuthContextProvider(props) {
   const [authState, setAuthState] = useState({});
   const navigate = useNavigate();
+
+
   const changeAuthState = (state) => {
     localStorage.setItem('accessToken', state.accessToken);
-
     setAuthState(state);
   }
-
-
 
 
   const logout = async () => {
@@ -37,8 +36,6 @@ export function AuthContextProvider(props) {
       console.error('Failed to logout from server:', err);
     }
   }
-
-
 
 
   const contextData = {
@@ -60,8 +57,9 @@ export function AuthContextProvider(props) {
 }
 
 
-export function useAuthContext() {
-  const authDate = useContext(AuthContext);
 
-  return authDate;
+export function useAuthContext() {
+  const authData = useContext(AuthContext);
+
+  return authData;
 }

@@ -94,6 +94,7 @@
 .errorMessage {
     margin: 0;
     margin-bottom: 10px;
+    max-width: 271px;
 }
 
 .errorMessage span {

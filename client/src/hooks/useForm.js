@@ -10,6 +10,7 @@ export function useForm(initialValues, submitCallback) {
     const handleSubmit = (e) => {
         e.preventDefault();
         submitCallback(values);
+        setValues(initialValues)
     }
 
     return {
