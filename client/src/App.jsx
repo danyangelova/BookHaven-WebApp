@@ -30,12 +30,17 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<Register />} />
+          {/* <Route path="/books/:bookId/edit" element={<EditBook />} /> */}
           {/* <Route path="/post" element={<PostBook />} /> */}
-          <Route path="/edit" element={<EditBook />} />
 
           <Route path="/post" element={
             <PrivateRoute>
               <PostBook />
+            </PrivateRoute>
+          } />
+          <Route path="/books/:bookId/edit" element={
+            <PrivateRoute>
+              <EditBook />
             </PrivateRoute>
           } />
 

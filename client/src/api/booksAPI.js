@@ -28,3 +28,8 @@ export const deleteBook = async (bookId) => {
     return await del(`${apiURL}/${bookId}`);
 
 }
+
+
+export const editBook = async (bookId, bookData) => {
+    return await put(`${apiURL}/${bookId}`, bookData);
+}

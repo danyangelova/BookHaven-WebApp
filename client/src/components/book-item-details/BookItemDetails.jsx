@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom'
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './BookItemDetails.module.css';
 import Spinner from '../spinner/Spinner';
@@ -48,10 +48,8 @@ export default function BookItemDetails() {
                                 <p>{description}</p>
                                 {isOwner && isAuthenticated && (
                                     <div className={styles.buttons} >
-                                        <a className={`${styles.btn} ${styles.edit}`}>Edit</a>
-                                        <a
-                                            className={styles.btn}
-                                            onClick={handleDeleteBook}
+                                        <Link  to={`/books/${bookId}/edit`} className={`${styles.btn} ${styles.edit}`}>Edit</Link>
+                                        <a className={styles.btn} onClick={handleDeleteBook}
                                         >
                                             Delete
                                         </a>
