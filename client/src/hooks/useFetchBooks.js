@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { createBook, getAllBooks, getBookById } from "../api/booksAPI";
+import { createBook, getAllBooks, getBookById, deleteBook } from "../api/booksAPI";
 
 
 export function useFetchBooks() {
@@ -59,4 +59,19 @@ export function useCreateBook() {
     }
 
     return handleBookCreate;
+}
+
+
+
+export function useDeleteBook() {
+    const handleBookDelete = async (bookId) => {
+        try {
+            const result = await deleteBook(bookId);
+            return result;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    return handleBookDelete;
 }
