@@ -2,13 +2,11 @@ import { Link } from 'react-router-dom'
 
 import styles from '../AllBooks.module.css';
 
-export default function AllBooksList({
+export default function AllBooksItem({
     _id,
     title,
     author,
-    genre,
-    imageUrl,
-    description }) {
+    imageUrl}) {
         
     return (
         <>
