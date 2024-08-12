@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 
-import { createBook, getAllBooks, getBookById, deleteBook } from "../api/booksAPI";
+import { createBook, getAllBooks, getBookById, deleteBook, getBooksByOwner } from "../api/booksAPI";
+import { useAuthContext } from "../contexts/AuthContext";
+
 
 
 export function useFetchBooks() {
-    
+
     const [books, setBooks] = useState([])
 
     useEffect(() => {
@@ -20,6 +22,7 @@ export function useFetchBooks() {
 
     return books;
 }
+
 
 
 
@@ -43,8 +46,9 @@ export function useFetchBook(bookId) {
         })();
     }, [bookId]);
 
-    return [ book, isFetching ];
+    return [book, isFetching];
 }
+
 
 
 
@@ -63,6 +67,7 @@ export function useCreateBook() {
 
 
 
+
 export function useDeleteBook() {
     const handleBookDelete = async (bookId) => {
         try {
@@ -74,4 +79,28 @@ export function useDeleteBook() {
     }
 
     return handleBookDelete;
+}
+
+
+
+
+export function useFetchUserBooks() {
+    const { userId } = useAuthContext();
+    const [userBooks, setUserBooks] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                if (userId) {
+                    const result = await getBooksByOwner(userId);
+                    setUserBooks(result);
+                }
+            } catch (error) {
+                console.error('Error fetching user books:', error);
+            }
+        })();
+    }, [userId]);
+    // console.log(userBooks);
+
+    return userBooks;
 }

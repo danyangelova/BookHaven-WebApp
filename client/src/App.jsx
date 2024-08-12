@@ -12,6 +12,7 @@ import EditBook from "./components/edit-book/EditBook"
 import BookItemDetails from "./components/book-item-details/BookItemDetails"
 import { PrivateRoute } from "./components/private-route/PrivateRoute"
 import Logout from "./components/logout/Logout"
+import UserBooks from "./components/user-books/UserBooks"
 
 
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<Register />} />
+          {/* <Route path="/my-books" element={<UserBooks />} /> */}
           {/* <Route path="/books/:bookId/edit" element={<EditBook />} /> */}
           {/* <Route path="/post" element={<PostBook />} /> */}
 
@@ -41,6 +43,11 @@ function App() {
           <Route path="/books/:bookId/edit" element={
             <PrivateRoute>
               <EditBook />
+            </PrivateRoute>
+          } />
+          <Route path="/my-books" element={
+            <PrivateRoute>
+              <UserBooks />
             </PrivateRoute>
           } />
 

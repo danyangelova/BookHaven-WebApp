@@ -1,0 +1,46 @@
+.userBooks {
+    margin: 61px 0;
+}
+
+.heading {
+    font-size: 1.9em;
+    position: absolute;
+    top: 138px;
+    left: 38px;
+}
+
+.booksContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* grid-template-columns: repeat(auto-fit, minmax(236px, 1fr)); */
+    gap: 20px 53px;
+    margin-top: 119px;
+}
+
+.booksContainer p {
+    color: #781054;
+    font-style: italic;
+}
+
+.bookItem {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    width: 200px;
+    margin-bottom: 25px;
+}
+
+.bookItem img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.bookItem h3 {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: bold;
+}

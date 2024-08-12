@@ -34,6 +34,7 @@ export default function PostBook() {
                     value={values.title}
                     onChange={handleInputChange}
                     placeholder="The Little Prince"
+                    required
                     spellCheck="false"
                 />
                 <label htmlFor="author">Author</label>
@@ -43,6 +44,7 @@ export default function PostBook() {
                     value={values.author}
                     onChange={handleInputChange}
                     placeholder="Antoine de Saint-Exupéry"
+                    required
                     spellCheck="false"
                 />
                 <label htmlFor="genre">Genre</label>
@@ -52,6 +54,7 @@ export default function PostBook() {
                     value={values.genre}
                     onChange={handleInputChange}
                     placeholder="novella"
+                    required
                     spellCheck="false"
                 />
                 <label htmlFor="imageUrl">Image</label>
@@ -59,12 +62,14 @@ export default function PostBook() {
                     name="imageUrl"
                     type="text"
                     value={values.imageUrl}
+                    required
                     onChange={handleInputChange}
                 />
                 <textarea
                     name="description"
                     value={values.description}
                     onChange={handleInputChange}
+                    required
                     spellCheck="false">
                 </textarea>
                 <input type="submit" value="Post" />

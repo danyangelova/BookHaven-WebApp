@@ -3,10 +3,10 @@ import { Link } from "react-router-dom"
 import { NavLink } from "react-router-dom"
 import { useAuthContext } from "../../contexts/AuthContext"
 
- 
+
 export default function Header() {
     const { isAuthenticated, email, logout } = useAuthContext()
- 
+
     return (
         <>
             <header>
@@ -16,7 +16,7 @@ export default function Header() {
                 <nav>
                     {isAuthenticated &&
                         <>
-                            <p>{email}</p>
+                            <p>Hi, {email}</p>
                         </>}
                     <NavLink
                         to="/books"
@@ -26,6 +26,11 @@ export default function Header() {
                     {isAuthenticated
                         ?
                         <>
+                            <NavLink
+                                to="/my-books"
+                                style={({ isActive }) => isActive ? { color: "#652c5c", fontWeight: "bold" } : {}}
+                            >My books
+                            </NavLink>
                             <NavLink
                                 to="/post"
                                 style={({ isActive }) => isActive ? { color: "#652c5c", fontWeight: "bold" } : {}}
