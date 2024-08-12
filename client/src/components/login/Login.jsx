@@ -1,10 +1,11 @@
 import { useLogin } from '../../hooks/useAuth';
 import { useForm } from '../../hooks/useForm'
 
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 
 import '../../login-register.css'
+
 
 const initialValues = { email: '', password: '' }
 
@@ -15,22 +16,27 @@ export default function Login() {
     const login = useLogin();
     const navigate = useNavigate();
 
-    const handleLogin = async ({ email, password }) => {
+
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        setError('');
+
+        const { email, password } = values;
+
         try {
             await login(email, password)
             navigate('/')
-
         } catch (err) {
-            setError(err.message)
+            setError("Email or password don't match");
         }
     }
 
-    const { values, handleInputChange, handleSubmit } = useForm(initialValues, handleLogin);
+    const { values, handleInputChange } = useForm(initialValues);
 
     return (
         <>
             <section className="login" id="login" >
-                <form className='formLogin' onSubmit={handleSubmit}>
+                <form className='formLogin' onSubmit={handleLogin}>
                     <div className="formContainer">
                         <div className="bookImg"></div>
                         <h2>Login</h2>
@@ -61,7 +67,7 @@ export default function Login() {
                         }
                         <input type="submit" value="Login" />
                         <p className="field">
-                            <span>You don't have a profile? <a href="#">click here</a></span>
+                            <span>You don't have a profile? <Link to="/register">click here</Link></span>
                         </p>
                     </div>
                 </form>

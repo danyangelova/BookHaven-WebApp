@@ -1,10 +1,11 @@
 import { useRegister } from '../../hooks/useAuth'
 import { useForm } from '../../hooks/useForm';
 
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 import '../../login-register.css'
+
 
 const initialValues = { email: '', password: '', rePassword: '' };
 
@@ -15,25 +16,42 @@ export default function Register() {
     const register = useRegister();
     const navigate = useNavigate();
 
-    const handleRegister = async ({ email, password, rePassword }) => {
+
+    const handleRegister = async (event) => {
+        event.preventDefault(); 
+        setError('');
+
+        const { email, password, rePassword } = values;
+
+
         if (password !== rePassword) {
-            return setError('Password do not match')
+            setError('Passwords do not match');
+            return;
         }
+
+        if (password.length < 6) {
+            setError('Password must be at least 6 characters long');
+            return;
+        }
+
         try {
-            await register(email, password)
-            navigate('/')
-            
+            await register(email, password);
+            navigate('/');
         } catch (err) {
-            setError(err.message)
+            if (err.message.includes('already exists')) {
+                setError('Email already exists.');
+            } else {
+                setError('Registration failed. Please try again.');
+            }
         }
     }
 
-    const { values, handleInputChange, handleSubmit } = useForm(initialValues, handleRegister);
+    const { values, handleInputChange } = useForm(initialValues);
 
     return (
         <>
             <section className="register" id="register">
-                <form className='formRegister' onSubmit={handleSubmit}>
+                <form className='formRegister' onSubmit={handleRegister}>
                     <div className="formContainer">
                         <div className="bookImg"></div>
                         <h2>Register</h2>
@@ -73,7 +91,7 @@ export default function Register() {
 
                         <input type="submit" value="Register" />
                         <p className="field">
-                            <span>If you already have a profile <a href="#">click here</a></span>
+                            <span>If you already have a profile <Link to="/login">click here</Link></span>
                         </p>
                     </div>
                 </form>
