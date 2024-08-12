@@ -6,12 +6,16 @@ import { useFetchBooks } from '../../hooks/useFetchBooks.js';
 
 import { filterUniqueBooks } from '../../utils/filterUniqueBooks.js';
 import AllBooksItem from './all-books-item/AllBooksItem.jsx';
+import { useAuthContext } from '../../contexts/AuthContext.jsx';
 
 export default function AllBooks() {
 
 
     const books = useFetchBooks();
+    const { userId } = useAuthContext();
     const uniqueBooks = filterUniqueBooks(books);
+    // console.log(books);
+    
 
     return (
 
@@ -22,7 +26,12 @@ export default function AllBooks() {
             <div className={styles.catalog}>
                 {books.length > 0 ? (
                     uniqueBooks.map(book => (
-                        <AllBooksItem key={book._id} {...book} />
+                        <AllBooksItem
+                            key={book._id}
+                            {...book}
+                            currentUserId={userId}
+                            bookOwnerId={book._ownerId}
+                        />
                     ))
                 ) : (
                     <Spinner />
