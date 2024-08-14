@@ -31,26 +31,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<Register />} />
-          {/* <Route path="/my-books" element={<UserBooks />} /> */}
-          {/* <Route path="/books/:bookId/edit" element={<EditBook />} /> */}
-          {/* <Route path="/post" element={<PostBook />} /> */}
 
-          <Route path="/post" element={
-            <PrivateRoute>
-              <PostBook />
-            </PrivateRoute>
-          } />
-          <Route path="/books/:bookId/edit" element={
-            <PrivateRoute>
-              <EditBook />
-            </PrivateRoute>
-          } />
-          <Route path="/my-books" element={
-            <PrivateRoute>
-              <UserBooks />
-            </PrivateRoute>
-          } />
-
+          <Route element={<PrivateRoute />} >
+            <Route path='/post' element={<PostBook />} />
+            <Route path='/books/:bookId/edit' element={<EditBook />} />
+            <Route path='/my-books' element={<UserBooks />} />
+          </Route>
         </Routes>
       </main>
 
