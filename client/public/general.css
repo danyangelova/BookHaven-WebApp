@@ -6,6 +6,12 @@ body {
     height: 100vh;
 }
 
+:root {
+    --primary-color: #781054;
+    --secondary-color: #a83388;
+    --button-hover: #b855a5;
+}
+
 
 a {
     text-decoration: none;
@@ -39,7 +45,7 @@ nav a {
 nav p {
     margin: 0 10px;
     font-size: 18px;
-    color: #781054;
+    color: var(--primary-color);
     font-weight: bold;
 }
 
@@ -48,11 +54,11 @@ main {
 }
 
 h1 {
-    color: #781054;
+    color: var(--primary-color);
 }
 
 .btn {
-    background-color: #a83388;
+    background-color: (var(--secondary-color));
     color: #fff;
     border: none;
     padding: 10px 15px;
@@ -62,7 +68,7 @@ h1 {
 }
 
 .btn:hover {
-    background-color: #b855a5;
+    background-color: (var(--button-hover));
 }
 
 

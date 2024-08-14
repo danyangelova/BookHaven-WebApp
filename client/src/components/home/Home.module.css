@@ -49,7 +49,7 @@
 }
 
 .bookInfo h2 {
-    color: #a83388;
+    color: var(--secondary-color);
     margin: 0;
 }
 
@@ -64,7 +64,7 @@
 } */
 
 .btn {
-    background-color: #a83388;
+    background-color: var(--secondary-color);
     color: #fff;
     text-decoration: none;
     padding: 10px 15px;
@@ -79,5 +79,5 @@
 }
 
 .btn:hover {
-    background-color: #b855a5;
+    background-color: var(--button-hover);
 }

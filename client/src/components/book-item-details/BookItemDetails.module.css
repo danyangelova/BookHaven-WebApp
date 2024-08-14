@@ -23,7 +23,7 @@
 }
 
 .btn {
-    background-color: #a83388;
+    background-color: var(--secondary-color);
     color: #fff;
     border: none;
     padding: 10px 15px;
@@ -33,7 +33,7 @@
 }
 
 .btn:hover {
-    background-color: #b855a5;
+    background-color: var(--button-hover);
 }
 
 .buttons {
@@ -61,13 +61,13 @@
     border-radius: 10px;
     margin-bottom: 40px;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    border: 1px solid #781054;
+    border: 1px solid var(--primary-color);
 }
 
 .commentsContainer h2 {
     text-align: center;
     margin: 10px 0 23px 0;
-    color: #781054;
+    color: var(--primary-color);
 }
 
 .commentsContainer .comments {
@@ -77,7 +77,7 @@
 
 .commentsContainer .comment {
     background-color: #fff;
-    color: #781054;
+    color: var(--primary-color);
     width: 45%;
     padding: 2px 12px;
     margin: 0 15px 30px 0;
@@ -90,7 +90,7 @@
 }
 
 .addComments {
-    border: 1px solid #781054;
+    border: 1px solid var(--primary-color);
     width: 45%;
     margin: 0 auto;
     border-radius: 10px;

@@ -34,14 +34,14 @@
 .formRegister h2{
     margin: 0 0 10px;
     font-size: 24px;
-    color: #781054;
+    color: var(--primary-color);
     text-align: center;
 }
 
 .formLogin label,
 .formRegister label {
     font-size: 16px;
-    color: #781054;
+    color: var(--primary-color);
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
@@ -62,7 +62,7 @@
 .formRegister input[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: #a83388;
+    background-color: var(--secondary-color);
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -74,7 +74,7 @@
 
 .formLogin input[type="submit"]:hover,
 .formRegister input[type="submit"]:hover {
-    background-color: #b855a5;
+    background-color: var(--button-hover);
 }
 
 .formLogin .field span, 
