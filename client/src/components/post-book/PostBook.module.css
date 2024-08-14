@@ -17,13 +17,13 @@ form {
 form h2 {
     margin: 0 0 10px;
     font-size: 24px;
-    color: #781054;
+    color: var(--primary-color);
     text-align: center;
 }
 
 form label {
     font-size: 16px;
-    color: #781054;
+    color: var(--primary-color);
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
@@ -34,7 +34,7 @@ form textarea {
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #781054;
+    border: 1px solid var(--primary-color);
     border-radius: 5px;
 }
 
@@ -45,7 +45,7 @@ form textarea {
 form input[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: #a83388;
+    background-color: var(--secondary-color);
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -54,12 +54,12 @@ form input[type="submit"] {
 }
 
 form input[type="submit"]:hover {
-    background-color: #b855a5;
+    background-color: var(--button-color);
 }
 
 form input[type="text"]:focus,
 form textarea:focus {
     outline: none;
-    border: 2px solid #a83388;
+    border: 2px solid var(--secondary-color);
     box-shadow: 0 0 5px rgba(168, 51, 136, 0.5);
 }

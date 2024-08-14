@@ -13,6 +13,7 @@ import BookItemDetails from "./components/book-item-details/BookItemDetails"
 import { PrivateRoute } from "./components/private-route/PrivateRoute"
 import Logout from "./components/logout/Logout"
 import UserBooks from "./components/user-books/UserBooks"
+import NotFound from "./components/not-found/NotFound"
 
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
 
           <Route element={<PrivateRoute />} >
             <Route path='/post' element={<PostBook />} />
