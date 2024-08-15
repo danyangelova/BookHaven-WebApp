@@ -58,7 +58,7 @@ h1 {
 }
 
 .btn {
-    background-color: (var(--secondary-color));
+    background-color: var(--secondary-color);
     color: #fff;
     border: none;
     padding: 10px 15px;
@@ -68,7 +68,7 @@ h1 {
 }
 
 .btn:hover {
-    background-color: (var(--button-hover));
+    background-color: var(--button-hover);
 }
 
 

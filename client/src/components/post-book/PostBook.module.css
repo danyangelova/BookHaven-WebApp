@@ -54,7 +54,7 @@ form input[type="submit"] {
 }
 
 form input[type="submit"]:hover {
-    background-color: var(--button-color);
+    background-color: var(--button-hover);
 }
 
 form input[type="text"]:focus,
