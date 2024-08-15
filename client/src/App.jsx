@@ -14,6 +14,7 @@ import { PrivateRoute } from "./components/private-route/PrivateRoute"
 import Logout from "./components/logout/Logout"
 import UserBooks from "./components/user-books/UserBooks"
 import NotFound from "./components/not-found/NotFound"
+import Footer from "./components/footer/Footer"
 
 
 
@@ -41,6 +42,7 @@ function App() {
           </Route>
         </Routes>
       </main>
+      <Footer />
 
     </AuthContextProvider>
   )

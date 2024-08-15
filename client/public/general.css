@@ -100,3 +100,19 @@ h1 {
         transform: rotate(360deg);
     }
 }
+
+/* Footer */
+
+.footerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 46px;
+    margin-bottom: 42px;
+}
+
+.footerContainer p {
+    font-family: "Noto Sans TC", sans-serif;
+    margin-top: 42px;
+}
